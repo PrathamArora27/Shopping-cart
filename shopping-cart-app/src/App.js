@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from './components/Navbar';
+import products from './components/productsArr';
+import CartItems from './components/CartItems';
+import CartBox from './components/CartBox';
+import { useState, useEffect } from 'react';
 
 function App() {
+const [arr,setArr] = useState([]);
+
+const [Total,setTotal] = useState(0);
+const addFunc = (product) => {
+  setArr([...arr, product])  
+  setTotal(Total+product.Price)
+};
+
+useEffect(() => {
+  console.log(arr);
+}, [arr]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <CartItems products={products} addLogic={addFunc}  />
+      <CartBox items={arr} Total={Total}/>
     </div>
   );
 }

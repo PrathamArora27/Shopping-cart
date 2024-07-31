@@ -1,0 +1,17 @@
+.navbar{
+    background-color: aqua;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-content {
+    justify-content: space-between;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    color: aliceblue;
+  }
+

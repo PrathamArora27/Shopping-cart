@@ -1,11 +1,14 @@
 import React from 'react'
+import '../styling/Navbar.css'
 
-const navbar = () => {
+const Navbar = () => {
   return (
-    <div>
-      <h1>Navbar</h1>
-    </div>
-  )
-}
+    <nav className="navbar">
+      <div className="navbar-content">
+        <div className="title">Shopping Website</div>
+      </div>
+    </nav>
+  );
+};
 
-export default navbar
+export default Navbar;
