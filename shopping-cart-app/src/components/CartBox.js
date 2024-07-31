@@ -1,23 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-const CartBox = ({items,Total}) => {
-    
-  return (
-    <div>
-        <h1>Cart List</h1>
-      <ul>
-        { items.map((item)=>(
-        <li key={item.prodID}>
-            <p>{item.Name}</p>
-            <h4>{item.Price}</h4>
-        </li>
-        ))
-        }
-        
-      </ul>
-      <h2>Total: {Total}</h2>
-    </div>
-  )
-}
+const CartBox = ({ items, Total }) => {
+    return (
+        <div className="cart-box">
+            <h2>Cart</h2>
+            <ul>
+                {items.map(item => (
+                    <li key={item.prodID}>
+                        {item.Name} - Quantity: {item.quantity} - Price: ${item.Price} 
+                    </li>
+                ))}
+            </ul>
+            <h3>Total: ${Total}</h3>
+        </div>
+    );
+};
 
-export default CartBox
+export default CartBox;
