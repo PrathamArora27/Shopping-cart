@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CartBox = ({ items, Total }) => {
+const CartBox = ({ items, Total, deleteItem }) => {
     return (
         <div className="cart-box">
             <h2>Cart</h2>
@@ -8,6 +8,7 @@ const CartBox = ({ items, Total }) => {
                 {items.map(item => (
                     <li key={item.prodID}>
                         {item.Name} - Quantity: {item.quantity} - Price: ${item.Price} 
+                        <button onClick={()=>{deleteItem(item)}}>delete</button>
                     </li>
                 ))}
             </ul>
