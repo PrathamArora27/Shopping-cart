@@ -6,10 +6,12 @@ import CartBox from './components/CartBox';
 import ProductDetail from './components/ProductDetail';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NewProduct from './components/NewProduct';
 
 function App() {
   const [arr, setArr] = useState([]);
   const [Total, setTotal] = useState(0);
+  const [prod, setProd] = useState(products);
 
   // Function to add a product to the cart
   const addFunc = (product) => {
@@ -32,6 +34,14 @@ function App() {
     setTotal(newTotal);
   }, [arr]);
 
+
+
+
+  // adding new element to array
+  const addNewprod = (newProd)=>{
+    setProd([...prod,newProd])
+  }
+
   return (
     <Router>
       <div className="App">
@@ -41,12 +51,13 @@ function App() {
             path="/" 
             element={
               <div className="main-container">
-                <CartItems products={products} addLogic={addFunc} />
+                <NewProduct addNewprod={addNewprod} prod={prod}/>
+                <CartItems products={prod} addLogic={addFunc} />
                 <CartBox items={arr} Total={Total} />
               </div>
             } 
           />
-          <Route path="/product/:id" element={<ProductDetail products={products} />} />
+          <Route path="/product/:id" element={<ProductDetail products={prod} />} />
         </Routes>
       </div>
     </Router>
