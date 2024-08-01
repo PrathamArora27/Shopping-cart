@@ -3,7 +3,7 @@ import '../styling/CartItem.css';
 import { Link } from 'react-router-dom';
 import image from '../images/headphone.jpg';
 
-const CartItems = ({ products, addLogic }) => {
+const CartItems = ({ products, addLogic,deletePeople }) => {
   return (
     <div className="cart-items-container">
       <ul className="cart-items-list">
@@ -14,6 +14,7 @@ const CartItems = ({ products, addLogic }) => {
             <h4>Price: ${product.Price}</h4>
             <Link to={`/product/${product.prodID}`}>View</Link>
             <button onClick={() => addLogic(product)}>Add</button>
+            <button onClick={() => deletePeople(product)}>Delete</button>
           </li>
         ))}
       </ul>

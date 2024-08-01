@@ -42,6 +42,11 @@ function App() {
     setProd([...prod,newProd])
   }
 
+  //deleting elements
+  const deletePeople= (itemm)=> {
+    setProd(prod.filter((e)=>e !== itemm))
+  }
+
   return (
     <Router>
       <div className="App">
@@ -52,7 +57,7 @@ function App() {
             element={
               <div className="main-container">
                 <NewProduct addNewprod={addNewprod} prod={prod}/>
-                <CartItems products={prod} addLogic={addFunc} />
+                <CartItems products={prod} addLogic={addFunc} deletePeople={deletePeople}  />
                 <CartBox items={arr} Total={Total} />
               </div>
             } 
