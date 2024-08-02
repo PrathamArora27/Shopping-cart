@@ -28,7 +28,7 @@ const NewProduct = ({addNewprod,prod}) => {
                 <input type="number" placeholder='age' value={price}
                     onChange={(e) => setprice(e.target.value)} required />
 
-                <button type="submit">Add Person</button>
+                <button type="submit">Add Product</button>
             </form>
       
     </div>

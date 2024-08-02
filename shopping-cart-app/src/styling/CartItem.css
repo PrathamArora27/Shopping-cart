@@ -31,6 +31,11 @@
     width: 80px;
     
   }
+
+  .dropdown-placeholder {
+    color: gray;
+    font-weight: bold;
+  }
   
   .cart-item button {
     padding: 10px 20px;
