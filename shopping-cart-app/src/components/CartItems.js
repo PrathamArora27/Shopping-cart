@@ -2,12 +2,21 @@ import React from 'react';
 import '../styling/CartItem.css';
 import { Link } from 'react-router-dom';
 import image from '../images/headphone.jpg';
+import { useState } from 'react';
 
-const CartItems = ({ products, addLogic,deletePeople }) => {
+
+const CartItems = ({ products, addLogic, deletePeople }) => {
+
+  const [findProd, setFindProd] = useState('');
+
+  const filterProducts = products.filter(product=> product.Name.toLowerCase().includes(findProd.toLowerCase()));
   return (
+    <>
+    <input type="text" placeholder='search product' value={findProd}
+        onChange={e => setFindProd(e.target.value)} />
     <div className="cart-items-container">
       <ul className="cart-items-list">
-        {products.map(product => (
+        {filterProducts.map(product => (
           <li key={product.prodID} className="cart-item">
             <img src={image} alt={product.Name} />
             <h2>{product.Name}</h2>
@@ -19,6 +28,7 @@ const CartItems = ({ products, addLogic,deletePeople }) => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 

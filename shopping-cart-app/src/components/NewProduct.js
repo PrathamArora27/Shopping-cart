@@ -4,6 +4,7 @@ const NewProduct = ({addNewprod,prod}) => {
 
     const [newName, setnewName] = useState('');
     const [price,setprice] = useState('');
+    
 
     const handleAddition = (e) =>{
         e.preventDefault();
@@ -12,6 +13,10 @@ const NewProduct = ({addNewprod,prod}) => {
         setnewName('');
         setprice('');
     }
+
+  
+
+
 
   return (
     <div>
